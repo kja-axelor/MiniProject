@@ -22,7 +22,7 @@ public class ShowStudentService {
 	public List<Student> showStudent() {
 		
 	EntityManager em = emp.get();
-	Query q = em.createQuery("from Student" , Student.class);
+	Query q = em.createQuery("from Student order by id" , Student.class);
 	
 	@SuppressWarnings("unchecked")
 	List<Student> list = q.getResultList();

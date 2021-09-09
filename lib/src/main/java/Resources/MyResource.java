@@ -1,20 +1,22 @@
 package Resources;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 
 import com.google.inject.Inject;
 
+import Database.Student;
 import services.DeleteStudent;
 import services.CreateStudent;
 import services.ShowStudentService;
@@ -32,36 +34,57 @@ public class MyResource {
 	UpdateStudent us;
 
 	@POST
-	@Path("test")
-	public void getHello(@Context HttpServletRequest req, @Context HttpServletResponse res) {
-		String s = req.getParameter("name");
-		ms.createStudent(s);
-		try {
-			req.getRequestDispatcher("/records.html").forward(req, res);
-		} catch (ServletException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	@Path("/test")
+	public Response createStudent(@FormParam ("name") String name ) {
+		ms.createStudent(name);
+		return Response.ok("Data added successfully").build();
+		
 	}
 
-	@POST
+	@GET
 	@Path("/showStudent")
-	@Produces(MediaType.TEXT_PLAIN)
-	public Response showProduct() {
-		return Response.ok(ss.showStudent()).build();
+	public void showStudent(@Context HttpServletRequest req, @Context HttpServletResponse res)
+			throws ServletException, IOException {
+		List<Student> list = ss.showStudent();
+
+		// setAttribute
+		req.setAttribute("list", list);
+
+		// Redirect
+
+		req.getRequestDispatcher("/show1.jsp").forward(req, res);
 	}
 
-	@POST
+	@GET
 	@Path("/deleteStudent")
-	public Response deleteProduct(@FormParam("id") int id) {
+	public void deleteStudent(@Context HttpServletRequest req, @Context HttpServletResponse res) throws ServletException, IOException {
+		int id = Integer.parseInt(req.getParameter("id"));
 		ds.deleteProduct(id);
-		return Response.ok("Record is deleted").build();
+		showStudent(req, res);
 	}
 
-	@POST
+	@GET
 	@Path("/updateStudent")
-	public Response updateProduct(@FormParam("id") int id, @FormParam("name") String name) {
-		us.updateStudent(id, name);
-		return Response.ok("Student record is updated !").build();
+	public void updateStudent(@Context HttpServletRequest req, @Context HttpServletResponse res) throws ServletException, IOException {
+		int id = Integer.parseInt(req.getParameter("id"));
+		
+		us.updateStudent(id, req.getParameter("name"));
+		
+		showStudent(req, res);
+		
+	}
+	
+	
+	@GET
+	@Path("/updatedStudent")
+	public void updateSelectedPeople(@Context HttpServletRequest req, @Context HttpServletResponse res)
+			throws ServletException, IOException {
+		int id = Integer.parseInt(req.getParameter("id"));
+		
+		//setAttr
+		req.setAttribute("id", id);
+		
+		//redirect
+		req.getRequestDispatcher("../update.jsp").forward(req, res);
 	}
 }
