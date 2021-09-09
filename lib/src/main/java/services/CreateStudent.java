@@ -11,29 +11,28 @@ import com.google.inject.persist.Transactional;
 
 import Database.Student;
 
-public class MyService {
+public class CreateStudent {
 
 	@Inject
 	Provider<EntityManager> emp;
 
 	@Transactional
-	public boolean createStudent(Student s) {
+	public boolean createStudent(String s) {
 		EntityManager em = emp.get();
-		em.persist(s);
+		Student st = new Student(s);
+		em.persist(st);
 		return true;
 	}
-	
-	
+
 	@Transactional
 	public List<Student> showStudent() {
-		
-	EntityManager em = emp.get();
-	Query q = em.createQuery("from Student" , Student.class);
-	
-	@SuppressWarnings("unchecked")
-	List<Student> list = q.getResultList();
-	return list;
+
+		EntityManager em = emp.get();
+		Query q = em.createQuery("from Student", Student.class);
+
+		@SuppressWarnings("unchecked")
+		List<Student> list = q.getResultList();
+		return list;
 	}
 
-    
 }

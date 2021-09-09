@@ -26,7 +26,8 @@ public class ShowStudentService {
 	
 	@SuppressWarnings("unchecked")
 	List<Student> list = q.getResultList();
-	return list;
+
+	return list; 
 	}
 
 }
