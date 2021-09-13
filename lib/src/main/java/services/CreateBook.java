@@ -54,14 +54,14 @@ public class CreateBook {
 	
 	
 	//DELETION
-	public String deleteBook(int bid) {
+	@Transactional
+	public void deleteBook(int bid) {
 		EntityManager em = emp.get();
 		
 		Books book =em.find(Books.class, bid);
+		
 		book.getS().getBook().remove(book);
 		em.remove(book);
-		
-		return "book is deleted Successfully";
 		
 		}
 	

@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<form action="../apple/updateStudent" method = "get">
+	<form action="../student/updateStudent" method = "get">
 	<h2>Data Updation </h2>
 	<label for = "id">ID:</label>
 	<input type = "text" name = "id" value ="<%out.print(request.getAttribute("id")); %>"><br>

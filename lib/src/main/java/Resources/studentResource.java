@@ -22,7 +22,7 @@ import services.CreateStudent;
 import services.ShowStudentService;
 import services.UpdateStudent;
 
-@Path("/apple")
+@Path("/student")
 public class studentResource {
 	@Inject
 	CreateStudent ms;
@@ -34,11 +34,11 @@ public class studentResource {
 	UpdateStudent us;
 
 	@POST
-	@Path("/test")
-	public Response createStudent(@FormParam ("name") String name ) {
+	@Path("/createStudent")
+	public void createStudent( @Context HttpServletRequest req, @Context HttpServletResponse res ) throws IOException {
+		String name = req.getParameter("name");
 		ms.createStudent(name);
-		return Response.ok("Data added successfully").build();
-		
+		res.sendRedirect("../student/showStudent");
 	}
 
 	@GET
@@ -60,7 +60,7 @@ public class studentResource {
 	public void deleteStudent(@Context HttpServletRequest req, @Context HttpServletResponse res) throws ServletException, IOException {
 		int id = Integer.parseInt(req.getParameter("id"));
 		ds.deleteStudent(id);
-		showStudent(req, res);
+		res.sendRedirect("../student/showStudent");
 	}
 
 	@GET
@@ -70,7 +70,7 @@ public class studentResource {
 		
 		us.updateStudent(id, req.getParameter("name"));
 		
-		showStudent(req, res);
+		res.sendRedirect("../student/showStudent");
 		
 	}
 	

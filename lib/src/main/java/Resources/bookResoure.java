@@ -18,42 +18,29 @@ import com.google.inject.Inject;
 import Database.Student;
 import services.CreateBook;
 
-@Path("banana")
+@Path("book")
 public class bookResoure {
 	@Inject
 	CreateBook cb;
 	
 	@POST
-	@Path("/create")
-	public Response createBook(@FormParam ("name") String name,@FormParam ("sid") int id) {
+	@Path("/createBook")
+	public void createBook(@Context HttpServletRequest req, @Context HttpServletResponse res) throws IOException {
+		String name = req.getParameter("name");
+		int id = Integer.parseInt(req.getParameter("sid"));
 		cb.createBook(name,id);
-		return Response.ok("Books added successfully").build();
-		
+		res.sendRedirect("../student/showStudent");
 	}
-	
-	@GET
-	@Path("/showBooks")
-	public void showBooks(@Context HttpServletRequest req, @Context HttpServletResponse res)
-			throws ServletException, IOException {
-		List<Student> list = cb.showStudent();
-
-		// setAttribute
-		req.setAttribute("list", list);
-
-		// Redirect
-
-		req.getRequestDispatcher("/show2.jsp").forward(req, res);
-	}
-	
 	
 	@GET
 	@Path("/deleteBook")
 	public void deleteBook(@Context HttpServletRequest req, @Context HttpServletResponse res) throws ServletException, IOException {
 		int id = Integer.parseInt(req.getParameter("bid"));
 		cb.deleteBook(id);
-		res.sendRedirect("../apple/showStudent");
+		res.sendRedirect("../student/showStudent");
 	}
 	
+	/*
 	@GET
 	@Path("/updateBook")
 	public void updateStudent(@Context HttpServletRequest req, @Context HttpServletResponse res) throws ServletException, IOException {
@@ -77,4 +64,5 @@ public class bookResoure {
 		//redirect
 		req.getRequestDispatcher("../updatebook.jsp").forward(req, res);
 	}
+	*/
 }

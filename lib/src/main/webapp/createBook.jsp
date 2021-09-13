@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="../lib/banana/create" method = "post"> 
+<form action="../lib/book/createBook" method = "post"> 
 	<h1>Add a new Book</h1>
 	
 	<label>Name:</label> <input type = "text" maxlength = 20 name = "name" required><br><br>

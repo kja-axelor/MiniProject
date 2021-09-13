@@ -39,8 +39,8 @@
 				out.print(s.getName());
 				%>
 			</td>
-			<td><a href="../apple/updatedStudent?id=<% out.print((s.getId()));%>"><input type="button" value="update" /></a></td>
-			<td><a href="../apple/deleteStudent?id=<% out.print((s.getId()));%>"><input type="button" value="Delete" /></a></td>
+			<td><a href="../student/updatedStudent?id=<% out.print((s.getId()));%>"><input type="button" value="update" /></a></td>
+			<td><a href="../student/deleteStudent?id=<% out.print((s.getId()));%>"><input type="button" value="Delete" /></a></td>
 			<td><a href="../createBook.jsp?id=<% out.print((s.getId()));%>"><input type="button" value="AddBook" /></a></td>
 			
 			<td>
@@ -70,8 +70,8 @@
 				out.print(b.getBname());
 				%>
 				</td>
-				<td><a href="../banana/deleteBook?bid=<% out.print((b.getBid()));%>"><input type="button" value="update" /></a></td>
-				<td><a href=""><input type="button" value="Delete" /></a></td>
+				<td><a href="../book/updateBook?bid=<% out.print((b.getBid())); %>>"><input type="button" value="Update" /></a></td>
+				<td><a href="../book/deleteBook?bid=<% out.print((b.getBid()));%>"><input type="button" value="Delete" /></a></td>
 				</tr>
 			<%} %>
 			</table>
