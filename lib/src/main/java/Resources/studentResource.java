@@ -23,7 +23,7 @@ import services.ShowStudentService;
 import services.UpdateStudent;
 
 @Path("/apple")
-public class MyResource {
+public class studentResource {
 	@Inject
 	CreateStudent ms;
 	@Inject
@@ -59,7 +59,7 @@ public class MyResource {
 	@Path("/deleteStudent")
 	public void deleteStudent(@Context HttpServletRequest req, @Context HttpServletResponse res) throws ServletException, IOException {
 		int id = Integer.parseInt(req.getParameter("id"));
-		ds.deleteProduct(id);
+		ds.deleteStudent(id);
 		showStudent(req, res);
 	}
 

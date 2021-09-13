@@ -2,11 +2,13 @@ package Modules;
 
 import com.google.inject.AbstractModule;
 
-import Resources.MyResource;
+import Resources.bookResoure;
+import Resources.studentResource;
 
 public class MyModule extends AbstractModule {
 	@Override
 	protected void configure() {
-		bind(MyResource.class);
+		bind(studentResource.class);
+		bind(bookResoure.class);
 	}
 }

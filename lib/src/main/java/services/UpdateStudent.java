@@ -13,6 +13,7 @@ public class UpdateStudent {
 	Provider<EntityManager> emp;
 
 	@Transactional
+	
 	public String updateStudent(int sid, String name) {
 	EntityManager em = emp.get();
 	Student s = em.find(Student.class, sid);

@@ -15,7 +15,7 @@ public class DeleteStudent {
 	
 	
 	@Transactional
-	public String deleteProduct(int sid) {
+	public String deleteStudent(int sid) {
 	EntityManager em = emp.get();
 	
 	Student p =em.find(Student.class, sid);

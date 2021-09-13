@@ -9,7 +9,7 @@
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/apple" /> <!-- BD Mane -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/banana" /> <!-- BD Mane -->
 			<property name="javax.persistence.jdbc.user" value="axelor" /> <!-- DB User -->
 			<property name="javax.persistence.jdbc.password" value="axelor" /> <!-- DB Password -->
 
