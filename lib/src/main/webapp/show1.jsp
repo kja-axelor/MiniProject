@@ -70,7 +70,7 @@
 				out.print(b.getBname());
 				%>
 				</td>
-				<td><a href="../book/updateBook?bid=<% out.print((b.getBid())); %>>"><input type="button" value="Update" /></a></td>
+				<td><a href="../book/updatedBook?bid=<% out.print((b.getBid())); %>"><input type="button" value="Update" /></a></td>
 				<td><a href="../book/deleteBook?bid=<% out.print((b.getBid()));%>"><input type="button" value="Delete" /></a></td>
 				</tr>
 			<%} %>

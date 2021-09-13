@@ -67,11 +67,11 @@ public class CreateBook {
 	
 	//UPDATION
 	
-	public String updateBook(int bid, String name) {
+	public void updateBook(int bid, String name) {
 		EntityManager em = emp.get();
-		Student s = em.find(Student.class, bid);
-		s.setName(name);
-		return "Student name is updated !!";
+		Books b = em.find(Books.class, bid);
+		b.setBname(name);
+		
 	}
 	
 	

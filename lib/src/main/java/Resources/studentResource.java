@@ -73,8 +73,6 @@ public class studentResource {
 		res.sendRedirect("../student/showStudent");
 		
 	}
-	
-	
 	@GET
 	@Path("/updatedStudent")
 	public void updateSelectedPeople(@Context HttpServletRequest req, @Context HttpServletResponse res)
@@ -85,6 +83,6 @@ public class studentResource {
 		req.setAttribute("id", id);
 		
 		//redirect
-		req.getRequestDispatcher("../update.jsp").forward(req, res);
+		req.getRequestDispatcher("../updateStudent.jsp").forward(req, res);
 	}
 }

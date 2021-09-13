@@ -14,10 +14,9 @@ public class UpdateStudent {
 
 	@Transactional
 	
-	public String updateStudent(int sid, String name) {
+	public void updateStudent(int sid, String name) {
 	EntityManager em = emp.get();
 	Student s = em.find(Student.class, sid);
 	s.setName(name);
-	return "Student name is updated !!";
-}
+	}
 }

@@ -40,15 +40,15 @@ public class bookResoure {
 		res.sendRedirect("../student/showStudent");
 	}
 	
-	/*
+	
 	@GET
 	@Path("/updateBook")
-	public void updateStudent(@Context HttpServletRequest req, @Context HttpServletResponse res) throws ServletException, IOException {
-		int id = Integer.parseInt(req.getParameter("bid"));
+	public void updateBook(@Context HttpServletRequest req, @Context HttpServletResponse res) throws ServletException, IOException {
+		int bid = Integer.parseInt(req.getParameter("id"));
 		
-		cb.updateBook(id, req.getParameter("name"));
-		
-		res.sendRedirect("../apple/showStudent");
+		cb.updateBook(bid, req.getParameter("bname"));
+		res.sendRedirect(req.getContextPath()+"/student/showStudent");
+//		res.sendRedirect("../student/showStudent");
 		
 	}
 	
@@ -64,5 +64,4 @@ public class bookResoure {
 		//redirect
 		req.getRequestDispatcher("../updatebook.jsp").forward(req, res);
 	}
-	*/
 }
