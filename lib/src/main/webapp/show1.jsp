@@ -15,6 +15,15 @@
 </head>
 <body>
 	<h1>Library Management System</h1>
+	<h2>Filter</h2>
+	<form action="<%=request.getContextPath()%>/student/search" >
+	
+	<input type = "text" name="name" placeholder="student name">
+	<input type = "submit" value="Go">
+	</form>
+	
+	<br>
+	<br>
 	<table>
 		<tr>
 			<th>ID</th>

@@ -72,6 +72,6 @@ public class CreateBook {
 		b.setBname(name);
 		
 	}
-	
+
 	
 }

@@ -17,27 +17,19 @@ import javax.ws.rs.core.Response;
 import com.google.inject.Inject;
 
 import Database.Student;
-import services.DeleteStudent;
-import services.CreateStudent;
+import services.CreateBook;
 import services.ShowStudentService;
-import services.UpdateStudent;
 
 @Path("/student")
 public class studentResource {
 	@Inject
-	CreateStudent ms;
-	@Inject
 	ShowStudentService ss;
-	@Inject
-	DeleteStudent ds;
-	@Inject
-	UpdateStudent us;
 
 	@POST
 	@Path("/createStudent")
 	public void createStudent( @Context HttpServletRequest req, @Context HttpServletResponse res ) throws IOException {
 		String name = req.getParameter("name");
-		ms.createStudent(name);
+		ss.createStudent(name);
 		res.sendRedirect("../student/showStudent");
 	}
 
@@ -59,7 +51,7 @@ public class studentResource {
 	@Path("/deleteStudent")
 	public void deleteStudent(@Context HttpServletRequest req, @Context HttpServletResponse res) throws ServletException, IOException {
 		int id = Integer.parseInt(req.getParameter("id"));
-		ds.deleteStudent(id);
+		ss.deleteStudent(id);
 		res.sendRedirect("../student/showStudent");
 	}
 
@@ -68,7 +60,7 @@ public class studentResource {
 	public void updateStudent(@Context HttpServletRequest req, @Context HttpServletResponse res) throws ServletException, IOException {
 		int id = Integer.parseInt(req.getParameter("id"));
 		
-		us.updateStudent(id, req.getParameter("name"));
+		ss.updateStudent(id, req.getParameter("name"));
 		
 		res.sendRedirect("../student/showStudent");
 		
@@ -85,4 +77,17 @@ public class studentResource {
 		//redirect
 		req.getRequestDispatcher("../updateStudent.jsp").forward(req, res);
 	}
+	
+	@GET
+	@Path("/search")
+	public void search(@Context HttpServletRequest req, @Context HttpServletResponse res) throws ServletException, IOException {
+		String name = req.getParameter("name");
+		List<Student> list = ss.searchStudent(name);
+		req.setAttribute("list", list);
+		
+		req.getRequestDispatcher("/show1.jsp").forward(req, res);
+	} 
+	
+	
+	
 }
