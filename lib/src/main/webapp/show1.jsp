@@ -10,18 +10,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+th, tr, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 5px;	
+}
+</style>
 <meta charset="ISO-8859-1">
 <title>Records</title>
 </head>
 <body>
 	<h1>Library Management System</h1>
 	<h2>Filter</h2>
-	<form action="<%=request.getContextPath()%>/student/search" >
-	
-	<input type = "text" name="name" placeholder="student name">
-	<input type = "submit" value="Go">
+	<form action="<%=request.getContextPath()%>/student/search">
+
+		<input type="text" name="name" placeholder="student name"> <input
+			type="submit" value="Go">
 	</form>
-	
+
 	<br>
 	<br>
 	<table>
@@ -48,51 +55,64 @@
 				out.print(s.getName());
 				%>
 			</td>
-			<td><a href="../student/updatedStudent?id=<% out.print((s.getId()));%>"><input type="button" value="update" /></a></td>
-			<td><a href="../student/deleteStudent?id=<% out.print((s.getId()));%>"><input type="button" value="Delete" /></a></td>
-			<td><a href="../createBook.jsp?id=<% out.print((s.getId()));%>"><input type="button" value="AddBook" /></a></td>
-			
+			<td><a
+				href="../student/updatedStudent?id=<%out.print((s.getId()));%>"><input
+					type="button" value="update" /></a></td>
+			<td><a
+				href="../student/deleteStudent?id=<%out.print((s.getId()));%>"><input
+					type="button" value="Delete" /></a></td>
+			<td><a href="../createBook.jsp?id=<%out.print((s.getId()));%>"><input
+					type="button" value="AddBook" /></a></td>
+
 			<td>
-			<table>
-			<tr>
-			<th>Id</th>
-			<th>Name</th>
-			<th>Update</th>
-			<th>Delete</th>
-			
-			<th></th>
-				
-			
-			</tr>
-			<%
-			for (Books b : s.getBook()) {
-			%>
-				
-				<tr>
-				<td>
-				<%
-				out.print(b.getBid());
-				%>
-				</td>
-				<td>
-				<%
-				out.print(b.getBname());
-				%>
-				</td>
-				<td><a href="../book/updatedBook?bid=<% out.print((b.getBid())); %>"><input type="button" value="Update" /></a></td>
-				<td><a href="../book/deleteBook?bid=<% out.print((b.getBid()));%>"><input type="button" value="Delete" /></a></td>
-				</tr>
-			<%} %>
-			</table>
+				<table>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Update</th>
+						<th>Delete</th>
+
+						<th></th>
+
+
+					</tr>
+					<%
+					for (Books b : s.getBook()) {
+					%>
+
+					<tr>
+						<td>
+							<%
+							out.print(b.getBid());
+							%>
+						</td>
+						<td>
+							<%
+							out.print(b.getBname());
+							%>
+						</td>
+						<td><a
+							href="../book/updatedBook?bid=<%out.print((b.getBid()));%>"><input
+								type="button" value="Update" /></a></td>
+						<td><a
+							href="../book/deleteBook?bid=<%out.print((b.getBid()));%>"><input
+								type="button" value="Delete" /></a></td>
+					</tr>
+					<%
+					}
+					%>
+				</table>
 			</td>
 
 		</tr>
-		<%} %>
+		<%
+		}
+		%>
 	</table>
-	
 
-	
-	
-		<a href="/lib"><input type = "button" value = "Home"></a>
+
+
+
+	<a href="/lib"><input type="button" value="Home"></a>
 </body>
 </html>
