@@ -26,9 +26,8 @@ public class CreateBook {
 	@Inject
 	Provider<EntityManager> emp;
 	
-	@Transactional
-	
 	//CREATION
+	@Transactional
 	public boolean createBook(String s,int id)
 	{
 		EntityManager em = emp.get();
@@ -66,7 +65,7 @@ public class CreateBook {
 		}
 	
 	//UPDATION
-	
+	@Transactional
 	public void updateBook(int bid, String name) {
 		EntityManager em = emp.get();
 		Books b = em.find(Books.class, bid);
