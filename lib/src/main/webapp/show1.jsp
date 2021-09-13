@@ -18,6 +18,8 @@
 		<tr>
 			<th>ID</th>
 			<th>Name</th>
+			<th>Updation</th>
+			<th>Deletion</th>
 
 		</tr>
 		<%
@@ -34,11 +36,12 @@
 				out.print(s.getName());
 				%>
 			</td>
-			<td><a href="../apple/updatedStudent?id=<% out.print((s.getId()));%>">update</a></td>
-			<td><a href="../apple/deleteStudent?id=<% out.print((s.getId()));%>">Delete</a></td>
+			<td><a href="../apple/updatedStudent?id=<% out.print((s.getId()));%>"><input type="button" value="update" /></a></td>
+			<td><a href="../apple/deleteStudent?id=<% out.print((s.getId()));%>"><input type="button" value="Delete" /></a></td>
 
 		</tr>
 		<%}%>
 	</table>
+	<a href="/lib"><input type = "button" value = "Home"></a>
 </body>
 </html>
