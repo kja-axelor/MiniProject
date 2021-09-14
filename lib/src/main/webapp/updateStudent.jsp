@@ -32,7 +32,7 @@
 	<div id="insider" style="margin-left: 10px">
 	<form action="../student/updateStudent" method = "get">
 		<label for = "id" style="margin-left: 3px;color: gray;">ID:</label>
-		<input type = "text" name = "id"  class="form-control" value ="<%out.print(request.getAttribute("id")); %>"><br>
+		<input type = "text" name = "id"  class="form-control" value ="<%out.print(request.getAttribute("id")); %>" disabled="disabled"><br>
 		<label for = "name" style="margin-left: 3px;color: gray;">Name:</label>
 		<input type = "text" name = "name"  class="form-control"><br>
 		<input type = "submit" value = "update" class="btn btn-danger">
