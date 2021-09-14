@@ -10,28 +10,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-th, tr, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-	padding: 5px;	
-}
-</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<link rel="stylesheet" href="../style.css">
+
 <meta charset="ISO-8859-1">
 <title>Records</title>
 </head>
 <body>
-	<h1>Library Management System</h1>
-	<h2>Filter</h2>
-	<form action="<%=request.getContextPath()%>/student/search">
 
-		<input type="text" name="name" placeholder="student name"> <input
-			type="submit" value="Go">
+
+	<h1 id="header">Library Management System</h1>
+	
+	<h2 align="center">Filter</h2>
+	<form action="<%=request.getContextPath()%>/student/search" class="filter">
+		<input type="text" name="name" placeholder="student name"> 
+		<input type="submit" value="Go">
 	</form>
 
 	<br>
 	<br>
-	<table>
+	
+	
+	<table class="center">
 		<tr>
 			<th>ID</th>
 			<th>Name</th>
@@ -57,12 +57,12 @@ th, tr, td {
 			</td>
 			<td><a
 				href="../student/updatedStudent?id=<%out.print((s.getId()));%>"><input
-					type="button" value="update" /></a></td>
+					type="button" value="update" class="btn btn-warning" /></a></td>
 			<td><a
 				href="../student/deleteStudent?id=<%out.print((s.getId()));%>"><input
-					type="button" value="Delete" /></a></td>
+					type="button" value="Delete" class="btn btn-danger"/></a></td>
 			<td><a href="../createBook.jsp?id=<%out.print((s.getId()));%>"><input
-					type="button" value="AddBook" /></a></td>
+					type="button" value="AddBook" class="btn btn-success" /></a></td>
 
 			<td>
 				<table>
@@ -80,7 +80,7 @@ th, tr, td {
 					for (Books b : s.getBook()) {
 					%>
 
-					<tr>
+					<tr class="row">
 						<td>
 							<%
 							out.print(b.getBid());
@@ -93,10 +93,10 @@ th, tr, td {
 						</td>
 						<td><a
 							href="../book/updatedBook?bid=<%out.print((b.getBid()));%>"><input
-								type="button" value="Update" /></a></td>
+								type="button" value="Update" class="btn btn-warning" /></a></td>
 						<td><a
 							href="../book/deleteBook?bid=<%out.print((b.getBid()));%>"><input
-								type="button" value="Delete" /></a></td>
+								type="button" value="Delete" class="btn btn-danger" /></a></td>
 					</tr>
 					<%
 					}
@@ -111,8 +111,10 @@ th, tr, td {
 	</table>
 
 
-
-
-	<a href="/lib"><input type="button" value="Home"></a>
+	
+	
+	<div class="center">
+	<a href="/lib"><input type="button" value="Home" class="btn btn-primary"></a>
+	</div>
 </body>
 </html>
