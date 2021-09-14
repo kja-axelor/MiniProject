@@ -30,9 +30,9 @@ margin-top: 30px;
 	<label style="margin-left: 3px;color: gray;">Name:</label> 
 	<form action="../lib/book/createBook" method = "post"> 
 	<input type = "text" maxlength = 20 name = "name" class="form-control" required><br><br>
-		<input type="hidden" name="sid" value="<%=request.getParameter("id")%>"/>
-		<input type = "submit" value = "create" class="btn btn-warning">
-		<a href="/lib"><input type = "button" value = "Home" class="btn btn-info"/></a>
+	<input type="hidden" name="sid" value="<%=request.getParameter("id")%>"/>
+	<input type = "submit" value = "create" class="btn btn-warning">
+	<a href="../lib/student/showStudent"><input type = "button" value = "Back" class="btn btn-danger"/></a>
 	</form>
 </div>
 
