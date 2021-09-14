@@ -4,16 +4,37 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Create Book</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<style type="text/css">
+
+.center{
+	text-align: center;
+	margin-top:5px;
+	margin-bottom: 10px;
+}
+
+#insider
+{
+margin-top: 30px;
+}
+</style>
 </head>
 <body>
-<form action="../lib/book/createBook" method = "post"> 
-	<h1>Add a new Book</h1>
-	
-	<label>Name:</label> <input type = "text" maxlength = 20 name = "name" required><br><br>
-	<input type="hidden" name="sid" value="<%=request.getParameter("id")%>"/>
-	<input type = "submit" value = "create">
-	<a href="/lib"><input type = "button" value = "Home"/></a>
-</form>
+<div class="center">
+	<h1 style="color: orange; background-color:black; margin-top: 10px;margin-bottom: 10px;">Add a new Book</h1>
+</div>
+
+
+<div id="insider"style="margin-left: 10px">
+	<label style="margin-left: 3px;color: gray;">Name:</label> 
+	<form action="../lib/book/createBook" method = "post"> 
+	<input type = "text" maxlength = 20 name = "name" class="form-control" required><br><br>
+		<input type="hidden" name="sid" value="<%=request.getParameter("id")%>"/>
+		<input type = "submit" value = "create" class="btn btn-warning">
+		<a href="/lib"><input type = "button" value = "Home" class="btn btn-info"/></a>
+	</form>
+</div>
+
 </body>
 </html>
