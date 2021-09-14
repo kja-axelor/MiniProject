@@ -21,7 +21,7 @@
 
 	<h1 id="header">Library Management System</h1>
 	
-	<h2 align="center">Filter</h2>
+	<h2 align="center" style="color: gray;">Filter</h2>
 	<form action="<%=request.getContextPath()%>/student/search" class="filter">
 		<input type="text" name="name" placeholder="student name"> 
 		<input type="submit" value="Go">
@@ -80,7 +80,7 @@
 					for (Books b : s.getBook()) {
 					%>
 
-					<tr class="row">
+					<tr>
 						<td>
 							<%
 							out.print(b.getBid());
