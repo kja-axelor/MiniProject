@@ -1,19 +1,12 @@
 package services;
 
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Provider;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Context;
 
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
@@ -63,7 +56,7 @@ public class CreateBook {
 		em.remove(book);
 		
 		}
-	
+		
 	//UPDATION
 	@Transactional
 	public void updateBook(int bid, String name) {

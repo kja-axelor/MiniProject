@@ -22,7 +22,7 @@ margin-top: 30px;
 </head>
 <body>
 <div class="center">
-	<h1 style="color: orange; background-color:black; margin-top: 10px;margin-bottom: 10px;">Add a new Book</h1>
+	<h1 style="color: orange; background-color:black; margin-top: 10px;margin-bottom: 10px;">Add a new book</h1>
 </div>
 
 
@@ -31,7 +31,7 @@ margin-top: 30px;
 	<form action="../lib/book/createBook" method = "post"> 
 	<input type = "text" maxlength = 20 name = "name" class="form-control" required><br><br>
 	<input type="hidden" name="sid" value="<%=request.getParameter("id")%>"/>
-	<input type = "submit" value = "create" class="btn btn-warning">
+	<input type = "submit" value = "Add" class="btn btn-warning">
 	<a href="../lib/student/showStudent"><input type = "button" value = "Back" class="btn btn-danger"/></a>
 	</form>
 </div>

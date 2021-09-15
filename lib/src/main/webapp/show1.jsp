@@ -62,7 +62,7 @@
 				href="../student/deleteStudent?id=<%out.print((s.getId()));%>"><input
 					type="button" value="Delete" class="btn btn-danger"/></a></td>
 			<td><a href="../createBook.jsp?id=<%out.print((s.getId()));%>"><input
-					type="button" value="AddBook" class="btn btn-success" /></a></td>
+					type="button" value="AddBooks" class="btn btn-success" /></a></td>
 
 			<td>
 				<table>
