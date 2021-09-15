@@ -1,4 +1,3 @@
-
 <%@page import="Database.Books"%>
 <%@page import="Database.Student"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -21,11 +20,17 @@
 
 	<h1 id="header">Library Management System</h1>
 	
-	<h2 align="center" style="color: gray;">Filter</h2>
-	<form action="<%=request.getContextPath()%>/student/search" class="filter">
-		<input type="text" name="name" placeholder="student name"> 
-		<input type="submit" value="Go">
+	<div>
+		<h2 align="center" style="color: gray;">Filter</h2>
+		<form action="<%=request.getContextPath()%>/student/search" class="filter">
+		<div class="form-group"> 
+		<input type="text" name="name" placeholder="student name" style="width:20%;"> 
+		<input type="submit" value="Go" style="color:black;background-color:Tomato;border: none; font-size: 18px">
+		</div>
+		
 	</form>
+	</div>
+	
 
 	<br>
 	<br>
